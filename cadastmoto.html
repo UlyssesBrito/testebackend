@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados do Motorista</title>
+    <link rel="shortcut icon" href="imagens/inconetaboao.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="conteiner">
+        <div class="logo">
+            <a href="index.html"><img src="imagens/logo-taboao2.png" alt="Logo" width="200" height="100"></a>
+        </div>
+        
+        <div class="options">
+            <nav>
+                <a href="#">HOME</a>
+                <a href="#">ADMINISTRAÇÃO</a>
+                <a href="#">CONTROLE DE ESTOQUE</a>
+                <a href="#">ENTRADAS</a>
+                <a href="#">SAIDAS</a>
+            </nav>
+        </div>
+
+        <div class="inputs">
+            <h2>Dados do Motorista</h2>
+            <form method="post" action="/upload" enctype="multipart/form-data">
+                <label for="nome">Nome:</label>
+                <input type="text" name="nome" id="nome" placeholder="NOME"><br>
+                <label for="cpf">CPF:</label>
+                <input type="number" name="cpf" id="cpf" placeholder="CPF"><br>
+                <label for="dataNascimento">Data Nasc:</label>
+                <input type="date" name="dataNascimento" id="dataNascimento" placeholder="Nascimento:"><br>
+                <label for="cnh">N CNH:</label>
+                <input type="text" name="cnh" id="cnh" placeholder="CNH"><br>
+                <label for="telefone">Telefone:</label>
+                <input type="number" name="telefone" id="telefone" placeholder="TELEFONE"><br>
+                <label for="empresa">Empresa:</label>
+                <input type="text" name="empresa" id="empresa" placeholder="Empresa"><br>
+                <label for="foto">Foto:</label>
+                <button type="button" id="abrirCamera">Abrir Câmera</button>
+                <input type="file" id="foto" name="foto" accept="image/*" capture="user" style="display: none;">
+                <video id="video" style="display:none;"></video>
+                <img id="previsualizacaoFoto" src="#" alt="Foto do Motorista" style="display: none;"> 
+                <canvas id="canvas" style="display: none;"></canvas> 
+                <div class="entrar">
+                    <input type="submit" value="Próximo"><br>
+                    <div id="saida"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        var video = document.querySelector('video');
+        var canvas = document.querySelector('canvas'); 
+        var abrirCameraBtn = document.querySelector('#abrirCamera');
+        var fotoInput = document.querySelector('#foto');
+        var previsualizacaoFoto = document.querySelector('#previsualizacaoFoto');
+
+        let stream;
+
+        abrirCameraBtn.addEventListener('click', () => {
+            if (stream) {
+                capturarFoto();
+            } else {
+                abrirCamera();
+            }
+        });
+
+        function abrirCamera() {
+            navigator.mediaDevices.getUserMedia({ video: true })
+                .then(s => {
+                    stream = s;
+                    video.srcObject = stream;
+                    video.play();
+                    video.style.display = 'block';
+                    abrirCameraBtn.textContent = 'Capturar Foto';
+                })
+                .catch(error => {
+                    console.error('Erro ao acessar a câmera:', error);
+                });
+        }
+
+        function capturarFoto() {
+            canvas.width = video.videoWidth;
+            canvas.height = video.videoHeight;
+            canvas.getContext('2d').drawImage(video, 0, 0);
+            previsualizacaoFoto.src = canvas.toDataURL('image/png');
+            previsualizacaoFoto.style.display = 'block';
+            video.style.display = 'none';
+
+            canvas.toBlob(blob => {
+                const file = new File([blob], 'foto.png', { type: 'image/png' });
+                const dataTransfer = new DataTransfer();
+                dataTransfer.items.add(file);
+                fotoInput.files = dataTransfer.files;
+
+                // Dispara o evento change para indicar que o arquivo foi alterado
+                fotoInput.dispatchEvent(new Event('change')); 
+            });
+        }
+    </script>
+</body>
+</html>

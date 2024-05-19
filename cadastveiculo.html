@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dados do Caminhão</title>
+    <link rel="shortcut icon" href="inconetaboao.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="conteiner">
+        <div class="logo">
+            <a href="index.html"><img src="imagens/logo-taboao2.png" alt="Logo" width="200" height="100"></a>
+        </div>
+        
+        <div class="options">
+            <nav>
+                <a href="#">HOME</a>
+                <a href="#">ADMINISTRAÇÃO</a>
+                <a href="#">CONTROLE DE ESTOQUE</a>
+                <a href="#">ENTRADAS</a>
+                <a href="#">SAIDAS</a>
+            </nav>
+        </div>
+
+        <div class="inputs">
+            <h2>Dados do Caminhão</h2>
+            <form method="post" action="/cadastrar-veiculo"> 
+                <label for="marcaCaminhao">Marca:</label>
+                <input type="text" name="marcaCaminhao" id="marcaCaminhao" placeholder="MARCA"><br>
+                <label for="placaCaminhao">Placa:</label>
+                <input type="text" name="placaCaminhao" id="placaCaminhao" maxlength="7" placeholder="Placa"><br>
+                <label for="modeloCaminhao">Modelo:</label>
+                <input type="text" name="modeloCaminhao" id="modeloCaminhao" placeholder="Modelo"><br>
+                <label for="tipoCacamba">Caçamba:</label>
+                <input type="text" name="tipoCacamba" id="tipoCacamba" placeholder="Caçamba"><br>
+                <div class="entrar">
+                    <input type="submit" value="Cadastrar"><br>
+                    <div id="saida"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+</body>
+</html>

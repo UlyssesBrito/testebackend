@@ -1,0 +1,124 @@
+*{
+    margin: 0;
+    padding: 0;
+    @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+SC:wght@100..900&display=swap');
+    font-family: 'notosans';
+}
+
+body {
+    background-color: white;
+    width: 100%;
+}
+
+nav {
+    background-color: rgba(0, 0, 0, 0.919);
+    width: 100%;
+    color: white;
+    padding: 30px;
+    display: flex;
+    justify-content: center; /* Centraliza os links horizontalmente */
+    flex-wrap: nowrap; /* Impede que os itens quebrem para a próxima linha */
+}
+
+nav > a {
+    text-decoration: none;
+    color: white;
+    font-weight: normal;
+    margin: 0 10px; /* Adiciona espaçamento entre os links */
+    transition: background-color 0.3s; /* Adiciona uma transição suave ao fundo */
+    padding: 10px 20px; /* Adiciona espaçamento interno */
+    white-space: nowrap; /* Impede que os links quebrem em várias linhas */
+    display: flex;
+}
+
+nav > a:hover {
+    background-color: grey;
+    border-radius: 5px; /* Adiciona um leve arredondamento ao hover */
+}
+
+.logo {
+    position: absolute;
+    top: 0;
+    left: 0%; /* Alinhando o logo ao centro horizontalmente */
+    transform: translateX(0%); /* Movendo o logo para a esquerda em 50% da largura dele */
+    z-index: 1000; /* Certificando-se de que o logo esteja acima da navegação */
+    width: 150px; /* Definindo a largura do logo */
+    height: auto; /* Mantendo a proporção do logo */
+}
+
+.inputs {
+    text-align: center;
+    color: rgba(0, 0, 0, 0.786);
+    font-size: large;
+    background-color: rgba(210, 207, 207, 0.941);
+    display: block;
+    margin-top: 100px; /* Adicionando espaço abaixo da faixa preta */
+    margin-left: 10%; /* Mudando para margem esquerda 10% */
+    margin-right: 10%; /* Mudando para margem direita 10% */
+    margin-bottom: 2px;
+    padding-bottom: 80px;
+    padding-top: 20px;
+    border-radius: 10px;
+    border: none;
+    cursor: pointer;
+    position: relative; /* Alterando para posicionamento relativo */
+}
+
+.inputs input {
+    margin: 5px;
+    border-radius: 5px;
+    text-align: center;
+    margin-bottom: 4px;
+}
+
+.entrar {
+    position: absolute; /* Posicionando os botões de forma absoluta */
+    bottom: 40px; /* Colocando os botões a 40px da parte inferior */
+    left: 50%; /* Alinhando os botões ao centro horizontalmente */
+    transform: translateX(-50%); /* Movendo os botões para a esquerda em 50% da largura deles */
+}
+
+.entrar input {
+    margin: 5px;
+    width: 120px; /* Aumentando para manter consistência com os outros botões */
+    background-color: rgba(189, 188, 188, 0.877);
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.5s; /* Adicionando transição para a mudança de cor de fundo */
+}
+
+.entrar input:hover {
+    background-color: rgba(60, 60, 60, 0.786);
+}
+
+.novocadas {
+    position: absolute; /* Posicionando os botões de forma absoluta */
+    bottom: 10px; /* Colocando os botões a 10px da parte inferior */
+    left: 50%; /* Alinhando os botões ao centro horizontalmente */
+    transform: translateX(-50%); /* Movendo os botões para a esquerda em 50% da largura deles */
+}
+
+.novocadas input {
+    margin: 5px;
+    width: 120px;
+    background-color: rgba(189, 188, 188, 0.877);
+    font-size: 17px;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.5s; /* Adicionando transição para a mudança de cor de fundo */
+}
+
+.novocadas input:hover {
+    background-color: rgba(60, 60, 60, 0.786);
+}
+
+#previsualizacaoFoto {
+    border: 1px solid #ccc;
+    width: 200px;
+    height: 150px;
+    margin-top: 10px;
+    display: none;
+}

@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="shortcut icon" href="imagens/inconetaboao.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="conteiner">
+        <div class="logo">
+            <a href="index.html"><img src="imagens/logo-taboao2.png" alt="Logo" width="200" height="100"></a>
+        </div>
+        
+        <div class="options">
+            <nav>
+                <a href="#">HOME</a>
+                <a href="#">ADMINISTRAÇÃO</a>
+                <a href="#">CONTROLE DE ESTOQUE</a>
+                <a href="#">ENTRADAS</a>
+                <a href="#">SAIDAS</a>
+            </nav>
+        </div>
+
+        <div class="inputs">
+            <h2>Login</h2>
+            <form id="form" action="/post" method="post">
+                <label for="funcional">Funcional:</label>
+                <input type="number" name="funcional" id="funcional" placeholder="Funcional"><br>
+                <label for="senha">Senha:</label>
+                <input type="password" name="senha" id="senha" placeholder="Senha">
+                <div class="entrar">
+                    <button type="submit">Entrar</button>
+                    <div id="saida"></div> 
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        let formulario = document.getElementById('form');
+        let funcional = document.getElementById('funcional');
+        let senha = document.getElementById('senha');
+        let saida = document.getElementById('saida');
+
+        formulario.addEventListener("submit", (event) => {
+            event.preventDefault();
+
+            if (funcional.value.trim() !== '' && senha.value.trim() !== '') {
+                formulario.submit();
+            } else {
+                alert('Por favor, preencha todos os campos.');
+            }
+        });
+    </script>
+</body>
+</html>

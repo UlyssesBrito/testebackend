@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Verificaçãode Cadastro</title>
+    <link rel="shortcut icon" href="imagens/inconetaboao.ico" type="image/x-icon">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="conteiner">
+        <div class="logo">
+            <a href="index.html"><img src="imagens/logo-taboao2.png" alt="Logo" width="200" height="100"></a>
+        </div>
+        
+        <div class="options">
+            <nav>
+                <a href="#">HOME</a>
+                <a href="#">ADMINISTRAÇÃO</a>
+                <a href="#">CONTROLE DE ESTOQUE</a>
+                <a href="#">ENTRADAS</a>
+                <a href="#">SAIDAS</a>
+            </nav>
+        </div>
+
+
+        <div class="inputs">
+            <h2>Verificação de Cadastro</h2>
+            <form id="formVerificacao" action="/verificar" method="post">
+                <label for="motorista_cpf">CPF do Motorista:</label>
+                <input type="number" name="motorista_cpf" id="motorista_cpf" placeholder="CPF DO MOTORISTA"><br>
+                <label for="placadoveiculo">Placa do Veículo:</label>
+                <input type="text" name="placadoveiculo" id="placadoveiculo" placeholder="PLACA DO VEICULO">
+                <div class="entrar">
+                    <button type="submit">Entrar</button>
+                    <div id="saida"></div>
+                </div>
+                <div class="novocadas">
+                    <input type="button" value="Novo Cadastro" onclick="window.location.href='/cadastmoto.html'">
+                    <div id="saida-novo"></div>
+                </div>
+            </form>
+        </div>
+    </div>
+
+    <script>
+        // ... (código JavaScript para lidar com a resposta do servidor, se necessário)
+    </script>
+</body>
+</html>
